@@ -8,9 +8,10 @@ module paddle_logic(
     output logic [7:0] next_pos // the next position of the paddle measures from top of paddle
 );
     //params for bounds
-    localparam int MAX_H = 100;
-    localparam int MIN_H = 0;
-    localparam int SPEED = 2;
+    localparam logic [7:0] MAX_H = 8'd100;
+    localparam logic [7:0] MIN_H = 8'd0;
+    localparam logic [7:0] SPEED = 8'd2;
+    localparam logic [7:0] PADDLE_WIDTH = 8'd3;
     logic [7:0] pos;  
 
     //still need to find where 0,0 is based on the cord system.
@@ -33,8 +34,8 @@ module paddle_logic(
                 next_pos = pos + SPEED;
             end
             else if (movement_down && !movement_up) begin
-                if (pos < MIN_H + SPEED) 
-                next_pos = MIN_H;   //clamping
+                if (pos < MIN_H + SPEED + PADDLE_WIDTH) 
+                next_pos = MIN_H + PADDLE_WIDTH;   //clamping
                 else
                 next_pos = pos - SPEED;
             end

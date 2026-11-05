@@ -1,0 +1,9 @@
+**/obj_dir/**
+*.fst
+*.vcd
+**/V*
+**/*.o
+**/*.elf
+**/*.bin
+**/syn/**
+**/syn_generic/**

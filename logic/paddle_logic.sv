@@ -5,13 +5,13 @@ module paddle_logic(
     input logic movement_up, 
     input logic movement_down, 
     input logic rst_n,
-    output logic [7:0] next_pos // the next position of the paddle
+    output logic [7:0] next_pos // the next position of the paddle measures from top of paddle
 );
     //params for bounds
     localparam int MAX_H = 100;
     localparam int MIN_H = 0;
     localparam int SPEED = 2;
-    logic [7:0] next_pos;  
+    logic [7:0] pos;  
 
     //still need to find where 0,0 is based on the cord system.
     
